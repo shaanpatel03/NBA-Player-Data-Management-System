@@ -4,15 +4,15 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace WPFApplication.Models;
+namespace Group2Project.Models;
 
-public partial class NBAContext : DbContext
+public partial class NbaContext : DbContext
 {
-    public NBAContext()
+    public NbaContext()
     {
     }
 
-    public NBAContext(DbContextOptions<NBAContext> options)
+    public NbaContext(DbContextOptions<NbaContext> options)
         : base(options)
     {
     }
