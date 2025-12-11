@@ -1,0 +1,118 @@
+﻿<Window x:Class="Group2Project.PlayerCardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Player Card" Height="630" Width="460"
+        WindowStartupLocation="CenterScreen"
+        Background="#121212"
+        ResizeMode="NoResize">
+
+    <Grid Margin="20">
+
+        <!-- Card Shadow -->
+        <Border CornerRadius="20"
+                Background="#222"
+                Margin="5">
+            <Border.Effect>
+                <DropShadowEffect Color="Black" BlurRadius="25" ShadowDepth="8" Opacity="0.6"/>
+            </Border.Effect>
+        </Border>
+
+        <!-- Actual Card -->
+        <Border CornerRadius="20"
+                Background="White"
+                BorderBrush="#e0e0e0"
+                BorderThickness="3">
+
+            <Grid>
+
+                <!-- FRONT -->
+                <Grid x:Name="FrontSide">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Player Name Banner -->
+                    <Border Background="#0A3D91" Height="70">
+                        <TextBlock x:Name="PlayerNameText"
+                                   FontSize="24"
+                                   FontWeight="Bold"
+                                   Foreground="White"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                    </Border>
+
+                    <!-- Picture -->
+                    <Border Grid.Row="1"
+                            Margin="15"
+                            BorderBrush="#CCCCCC"
+                            BorderThickness="2"
+                            Background="#F5F5F5">
+                        <Image x:Name="PlayerImage"
+                               Stretch="Uniform"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                    </Border>
+
+                    <!-- Flip Button -->
+                    <Button x:Name="FlipButton"
+                            Grid.Row="2"
+                            Content="View Stats"
+                            Height="40"
+                            Margin="15"
+                            FontSize="16"
+                            Background="#0A3D91"
+                            Foreground="White"
+                            BorderBrush="#0A3D91"
+                            Click="FlipButton_Click"/>
+                </Grid>
+
+                <!-- BACK -->
+                <Grid x:Name="BackSide"
+                      Visibility="Collapsed">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Header -->
+                    <Border Background="#0A3D91" Height="70">
+                        <TextBlock Text="Season Stats"
+                                   FontSize="24"
+                                   FontWeight="Bold"
+                                   Foreground="White"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                    </Border>
+
+                    <!-- Stats Grid -->
+                    <DataGrid x:Name="StatsGrid"
+                              Grid.Row="1"
+                              Margin="15"
+                              AutoGenerateColumns="True"
+                              IsReadOnly="True"
+                              HeadersVisibility="All"
+                              GridLinesVisibility="None"
+                              RowHeight="34"/>
+
+                    <!-- Flip Back -->
+                    <Button Grid.Row="2"
+                            Content="View Photo"
+                            Height="40"
+                            Margin="15"
+                            FontSize="16"
+                            Background="#0A3D91"
+                            Foreground="White"
+                            BorderBrush="#0A3D91"
+                            Click="FlipButton_Click"/>
+                </Grid>
+
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>
